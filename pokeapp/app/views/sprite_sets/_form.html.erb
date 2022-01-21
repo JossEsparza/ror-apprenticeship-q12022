@@ -1,0 +1,67 @@
+<%= form_with(model: sprite_set) do |form| %>
+  <% if sprite_set.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(sprite_set.errors.count, "error") %> prohibited this sprite_set from being saved:</h2>
+
+      <ul>
+        <% sprite_set.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :sprites_on_id, style: "display: block" %>
+    <%= form.number_field :sprites_on_id %>
+  </div>
+
+  <div>
+    <%= form.label :sprites_on_type, style: "display: block" %>
+    <%= form.text_field :sprites_on_type %>
+  </div>
+
+  <div>
+    <%= form.label :back_default, style: "display: block" %>
+    <%= form.text_field :back_default %>
+  </div>
+
+  <div>
+    <%= form.label :back_female, style: "display: block" %>
+    <%= form.text_field :back_female %>
+  </div>
+
+  <div>
+    <%= form.label :back_shiny, style: "display: block" %>
+    <%= form.text_field :back_shiny %>
+  </div>
+
+  <div>
+    <%= form.label :back_shiny_female, style: "display: block" %>
+    <%= form.text_field :back_shiny_female %>
+  </div>
+
+  <div>
+    <%= form.label :front_default, style: "display: block" %>
+    <%= form.text_field :front_default %>
+  </div>
+
+  <div>
+    <%= form.label :front_female, style: "display: block" %>
+    <%= form.text_field :front_female %>
+  </div>
+
+  <div>
+    <%= form.label :front_shiny, style: "display: block" %>
+    <%= form.text_field :front_shiny %>
+  </div>
+
+  <div>
+    <%= form.label :front_shiny_female, style: "display: block" %>
+    <%= form.text_field :front_shiny_female %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
