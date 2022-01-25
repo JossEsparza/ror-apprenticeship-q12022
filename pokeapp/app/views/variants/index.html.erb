@@ -1,13 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Variants</h1>
+<h2>Variants</h2>
 
 <div id="variants">
-  <% @variants.each do |variant| %>
-    <%= render variant %>
-    <p>
-      <%= link_to "Show this variant", variant %>
-    </p>
+  <% if @variants.empty? %>
+        <p> This Pokemon doesn't have variants</p>
+  <% else %>
+    <% @variants.each do |variant| %>
+      <%= render variant %>
+      <p>
+        <%= link_to "Show this variant", variant %>
+        <%= link_to "Show Sprite Sets", sprite_sets_path(variant: variant)%>
+      </p>
+    <% end %>
   <% end %>
 </div>
 

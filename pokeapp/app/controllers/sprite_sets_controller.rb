@@ -3,7 +3,13 @@ class SpriteSetsController < ApplicationController
 
   # GET /sprite_sets or /sprite_sets.json
   def index
+   if params[:pokemon]
+    @sprite_sets = SpriteSet.by_pokemon(params[:pokemon])
+   elsif params[:variant]
+    @sprite_sets = SpriteSet.by_variant(params[:variant])
+   else
     @sprite_sets = SpriteSet.all
+   end
   end
 
   # GET /sprite_sets/1 or /sprite_sets/1.json

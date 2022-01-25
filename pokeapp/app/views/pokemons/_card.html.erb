@@ -1,0 +1,40 @@
+<div id="app" class="container">
+  <div class="container">
+    <div class="columns is-mobile">
+      <div class="pokemon column">
+        <div class="card has-text-weight-bold has-text-white" class="card--pokemon">
+          <div class="card-image">
+            <div class="card-image-container">
+              <%= image_tag(pokemon.image, size: '200x200') %>
+            </div>
+          </div>
+          <div class="card-content has-text-centered">
+            <div class="main">
+              <div class="title has-text-white"><%= pokemon.name %></div>
+              <div class="id">ID: <%= pokemon.indicator %></div>
+            </div>
+            <div class="stats columns is-mobile">
+              <table>
+                <tr>
+                  <th><span class="tag">Experience</span></th>
+                  <th><span class="tag">Weight</span></th>
+                  <th><span class="tag">Height</span></th>
+                </tr>
+                <tr>
+                  <td><div class="column has-text-centered"><%= pokemon.experience %></div></td>
+                  <td><div class="column has-text-centered"><%= pokemon.weight %></div></td>
+                  <td><div class="column has-text-centered"><%= pokemon.height %></div></td>
+                </tr>
+                <tr>
+                  <td><%= link_to('Abilities', ability_pokemons_path(pokemon: pokemon))%> </td>
+                  <td><%= link_to('Sprite Sets', sprite_sets_path(pokemon: pokemon))%> </td>
+                  <td><%= link_to('Forms', variants_path(pokemon: pokemon))%> </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

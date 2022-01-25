@@ -37,7 +37,9 @@ URL = 'https://pokeapi.co/api/v2/pokemon/'
       ability_element = Ability.find_by_name(ability['ability']['name'])
       # If the ability doesn't exist, add it
       ability_element = Ability.create(name: ability['ability']['name']) if ability_element.nil?
+      # pokemon_element.abilities.create(name: ability['ability']['name']) if ability_element.nil?
       AbilityPokemon.create(pokemon: pokemon_element, ability: ability_element)
+      # pokemon_element.abilities.create(ability_element)
     end
 
     # Save forms data and sprites_set
