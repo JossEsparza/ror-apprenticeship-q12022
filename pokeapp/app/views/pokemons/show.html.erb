@@ -1,5 +1,5 @@
 <%= render(:partial => 'card', :locals => {pokemon: @pokemon, page_mode: :show}) %>
 <%= link_to "Edit this Pokemon", edit_pokemon_path(@pokemon) %> |
-<%= link_to "Back to Pokemon", pokemons_path %> |
+<%= link_to "Go back", :back %>|
 
 <%= link_to "Delete", delete_pokemon_path(@pokemon)%>
