@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+  # Defines the root path route ("/")
+  root "pokemons#index"
+
+  devise_for :users, controllers: { registrations: 'users/registrations'}
+
+  devise_scope :user do
+    get 'sign_in', to: 'devise/sessions#new'
+    get 'sign_up', to: 'devise/registrations#new'
+    get 'log_out', to: 'devise/sessions#destroy'
+  end
+
   resources :ability_pokemons do
     member do
       get :delete
@@ -29,7 +41,4 @@ Rails.application.routes.draw do
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-   root "pokemons#index"
 end

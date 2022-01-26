@@ -11,11 +11,22 @@
 
   <body>
     <h1>Pokémon</h1>
-    <% if !flash[:notice].blank? %>
+    <div class="button_container">
+      <% if user_signed_in? %>
+        <%= link_to "Edit profile", edit_user_registration_path, class: "button_edit_profile" %>
+        <%= link_to "Log out", log_out_path, method: :delete, class: "button_sign_log_out" %>
+      <% else %>
+        <%= link_to "Sign up", sign_up_path, class: "button_sign_up"%>
+        <%= link_to "Log in", sign_in_path, class: "button_sign_log_in" %>
+      <% end %>
+    </div>
+    <!-- <% if !flash[:notice].blank? %>
       <div class= "notice">
         <%= flash[:notice] %>
       </div>
-    <% end %>
+    <% end %> -->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

@@ -1,4 +1,6 @@
 class VariantsController < ApplicationController
+  protect_from_forgery prepend: true
+  before_action :authenticate_user!, only: %i[new create edit update delete destroy]
   before_action :set_variant, only: %i[ show edit update destroy ]
 
   # GET /variants or /variants.json

@@ -1,6 +1,7 @@
 class SpriteSetsController < ApplicationController
   layout 'application'
-  
+  protect_from_forgery prepend: true
+  before_action :authenticate_user!, only: %i[new create edit update delete destroy]
   before_action :set_sprite_set, only: %i[ show edit update destroy ]
 
   # GET /sprite_sets or /sprite_sets.json

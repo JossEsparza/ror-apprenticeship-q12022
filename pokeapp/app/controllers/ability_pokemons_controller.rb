@@ -1,5 +1,7 @@
 class AbilityPokemonsController < ApplicationController
   layout 'application'
+  protect_from_forgery prepend: true
+  before_action :authenticate_user!, only: %i[new create edit update delete destroy]
 
   def index
     if (params[:pokemon])

@@ -1,5 +1,7 @@
 class PokemonsController < ApplicationController
   layout 'application'
+  protect_from_forgery prepend: true
+  before_action :authenticate_user!, only: %i[new create edit update delete destroy]
 
   def index
     @pokemons = Pokemon.sorted.paginate(page: params[:page], per_page: 9)

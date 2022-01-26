@@ -205,3 +205,83 @@ img {
     padding: 1.0rem;
   }
 }
+
+.button_container {
+  text-align: right
+}
+
+.button_sign_up { 
+  -webkit-border-radius: 20;
+  -moz-border-radius: 20;
+  border-radius: 20px;
+  font-family: sans-serif;
+  color: #ffffff;
+  font-size: 15px;
+  background: #f575b3;
+  padding: 8px 10px 8px 10px;
+  text-decoration: none;
+    
+  .button_sign_up:hover {
+    background: #3cb0fd;
+    text-decoration: none;
+  }
+    
+  a{
+    color: #ffffff;
+  }
+}
+  
+
+
+.button_sign_log_in {
+    -webkit-border-radius: 20;
+    -moz-border-radius: 20;
+    border-radius: 20px;
+    font-family: sans-serif;
+    color: #ffffff;
+    font-size: 15px;
+    background: #ca75f5;
+    padding: 8px 10px 8px 10px;
+    text-decoration: none;
+
+    .button_sign_log_in:hover {
+      background: #fa3cd4;
+      text-decoration: none;
+    }
+}
+  
+
+.button_sign_log_out {
+  -webkit-border-radius: 20;
+  -moz-border-radius: 20;
+  border-radius: 20px;
+  font-family: sans-serif;
+  color: #ffffff;
+  font-size: 15px;
+  background: #f57586;
+  padding: 8px 10px 8px 10px;
+  text-decoration: none;
+  
+  .button_sign_log_out:hover {
+    background: #a63cfc;
+    text-decoration: none;
+  }
+}
+
+.button_edit_profile {
+  -webkit-border-radius: 20;
+  -moz-border-radius: 20;
+  border-radius: 20px;
+  font-family: sans-serif;
+  color: #ffffff;
+  font-size: 15px;
+  background: #f5b775;
+  padding: 8px 10px 8px 10px;
+  text-decoration: none;
+  
+  
+  .button_edit_profile:hover {
+    background: #faa43c;
+    text-decoration: none;
+  }
+}
