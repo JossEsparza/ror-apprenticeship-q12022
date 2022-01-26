@@ -3,7 +3,11 @@ class VariantsController < ApplicationController
 
   # GET /variants or /variants.json
   def index
-    @variants = Variant.by_pokemon(params[:pokemon])
+    if params[:pokemon] 
+      @variants = Variant.by_pokemon(params[:pokemon])
+    else
+      @variants = Variant.paginate(page: params[:page], per_page: 20)
+    end
   end
 
   # GET /variants/1 or /variants/1.json
@@ -12,7 +16,7 @@ class VariantsController < ApplicationController
 
   # GET /variants/new
   def new
-    @variant = Variant.new
+    @variant = Variant.new({pokemon_id: params[:pokemon]})
   end
 
   # GET /variants/1/edit
@@ -47,6 +51,9 @@ class VariantsController < ApplicationController
     end
   end
 
+  def delete
+    @variant = Variant.find(params[:id])
+  end
   # DELETE /variants/1 or /variants/1.json
   def destroy
     @variant.destroy

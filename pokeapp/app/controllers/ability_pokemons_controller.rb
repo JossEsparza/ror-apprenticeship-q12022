@@ -2,7 +2,11 @@ class AbilityPokemonsController < ApplicationController
   layout 'application'
 
   def index
-    @ability_pokemons = AbilityPokemon.all
+    if (params[:pokemon])
+      @ability_pokemons = AbilityPokemon.by_pokemon(params[:pokemon])
+    else
+      @ability_pokemons = AbilityPokemon.all
+    end
   end
 
   def show
@@ -34,9 +38,8 @@ class AbilityPokemonsController < ApplicationController
   def update
     # Find a new object using form parameters
     @ability_pokemon = AbilityPokemon.find(params[:id])
-    @ability_pokemon = AbilityPokemon.new(ability_pokemon_params)
     # Update the object
-    if @ability_pokemon.update_attributes(ability_pokemon_params)
+    if @ability_pokemon.update(ability_pokemon_params)
       # If save succeeds, redirect to the show action
       flash[:notice] = "Ability updated successfully"
       redirect_to(pokemons_path(@ability_pokemon))
@@ -53,12 +56,12 @@ class AbilityPokemonsController < ApplicationController
   def destroy
     @ability_pokemon = AbilityPokemon.find(params[:id])
     @ability_pokemon.destroy
-    flash[:notice] = "Ability #{@pokemon.name} destroyed successfully"
+    flash[:notice] = "Pokemon-Ability destroyed successfully"
     redirect_to(ability_pokemons_path)
   end
   private
 
   def ability_pokemon_params
-    params.require(:ability_pokemon).permit(:pokemon, :ability)
+    params.require(:ability_pokemon).permit(:pokemon_id, :ability_id)
   end
 end

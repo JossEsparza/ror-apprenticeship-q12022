@@ -1,0 +1,13 @@
+<div class="title">
+  <%= form_for(@sprite_set, :url => variant_path(@sprite_set), :method => 'delete') do |f| %>
+    <div class="delete-question">
+      <p>Are you sure you want to permanetly delete this sprite_set?</p>
+    </div>  
+    <p><%=f.object.sprites_on_id%></p>
+    <p><%=f.object.sprites_on_type%></p>
+    
+    <div class="form-buttons">
+      <%= f.submit("Delete Sprite Set") %>
+    </div>
+  <% end %>
+</div>

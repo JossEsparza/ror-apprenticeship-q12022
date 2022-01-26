@@ -10,7 +10,9 @@
           </div>
           <div class="card-content has-text-centered">
             <div class="main">
-              <div class="title has-text-white"><%= pokemon.name %></div>
+              <div class="title has-text-white">
+                <%= pokemon_title page_mode, pokemon %>
+              </div>
               <div class="id">ID: <%= pokemon.indicator %></div>
             </div>
             <div class="stats columns is-mobile">

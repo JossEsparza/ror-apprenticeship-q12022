@@ -3,7 +3,7 @@ class AbilitiesController < ApplicationController
 
   # GET /abilities or /abilities.json
   def index
-    @abilities = Ability.all
+    @abilities = Ability.sorted.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /abilities/1 or /abilities/1.json
@@ -25,6 +25,7 @@ class AbilitiesController < ApplicationController
 
     respond_to do |format|
       if @ability.save
+        flash[:notice] = "Ability was successfully created."
         format.html { redirect_to ability_url(@ability), notice: "Ability was successfully created." }
         format.json { render :show, status: :created, location: @ability }
       else
@@ -38,6 +39,7 @@ class AbilitiesController < ApplicationController
   def update
     respond_to do |format|
       if @ability.update(ability_params)
+        flash[:notice] = "Ability was successfully updated"
         format.html { redirect_to ability_url(@ability), notice: "Ability was successfully updated." }
         format.json { render :show, status: :ok, location: @ability }
       else
@@ -52,6 +54,7 @@ class AbilitiesController < ApplicationController
     @ability.destroy
 
     respond_to do |format|
+      flash[:notice] = "Ability was successfully updated"
       format.html { redirect_to abilities_url, notice: "Ability was successfully destroyed." }
       format.json { head :no_content }
     end

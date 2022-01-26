@@ -1,2 +1,11 @@
-<h1>Pokemons#edit</h1>
-<p>Find me in app/views/pokemons/edit.html.erb</p>
+<h2>Editing Pokemon</h2>
+
+<%= render "form", pokemon: @pokemon %>
+
+<br>
+
+<div>
+  <%= link_to "Show this Pokemon", @pokemon %> |
+  <%= link_to "Back to Pokemons", pokemons_path %>
+</div>
+

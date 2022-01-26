@@ -1,14 +1,2 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Sprite sets</h1>
-
-<div id="sprite_sets">
-  <% @sprite_sets.each do |sprite_set| %>
-    <%= render sprite_set %>
-    <p>
-      <%= link_to "Show this sprite set", sprite_set %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New sprite set", new_sprite_set_path %>
+<%= will_paginate @abilities %>
+<%= render(:partial => 'sprite_set') %>

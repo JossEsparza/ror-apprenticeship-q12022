@@ -3,7 +3,7 @@
 html, body {
   height: 100%;
   padding-top: 5px;
-  background: linear-gradient(to bottom right,#024,#402);
+  background: linear-gradient(to bottom right,#024,#402) fixed;
   color: white;
 }
 
@@ -20,12 +20,71 @@ a, #disabled{
   color: lightpink;
 }
 
+h2 {
+  text-align: center;
+}
+
+#pokemons-index{
+  display: grid;
+  grid-template-columns: repeat(3, 500px);
+  justify-content: center;
+}
+
+.table_ability {
+  table {
+    width: 500px;
+    border: 1px solid #000;
+  }
+
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid lightskyblue;
+    border-collapse: collapse;
+    padding: 0.3em;
+    caption-side: bottom;
+    text-align: center;
+  }
+  th {
+    font-family: 'Cinzel Decorative';
+    font-size: large;
+    color: khaki;
+  }
+} 
+
 a:hover {
   color: orange;
 }
 
+img {
+  filter: drop-shadow(5px 5px 5px, white);
+}
+
+.delete-question p {
+  font-size: x-large;
+  font-family: 'Cinzel Decorative';
+  color: bisque;
+} 
+
+.table {
+  table {
+    width: 100%;
+    border: 1px solid #000;
+  }
+
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid lightskyblue;
+    border-collapse: collapse;
+    padding: 0.3em;
+    caption-side: bottom;
+    text-align: center;
+  }
+} 
+
 #app {
-  height: 370px;
+  height: 420px;
   padding-top: 0px;
   font-family: Cinzel Decorative, sans-serif;
   text-align: center;

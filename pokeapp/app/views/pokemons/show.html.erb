@@ -1,8 +1,5 @@
-<% if !flash[:notice].blank? %>
-  <div class= "notice">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+<%= render(:partial => 'card', :locals => {pokemon: @pokemon, page_mode: :show}) %>
+<%= link_to "Edit this Pokemon", edit_pokemon_path(@pokemon) %> |
+<%= link_to "Back to Pokemon", pokemons_path %> |
 
-<h1>Pokemons#show</h1>
-<p>Find me in app/views/pokemons/show.html.erb</p>
+<%= link_to "Delete", delete_pokemon_path(@pokemon)%>

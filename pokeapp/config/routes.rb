@@ -11,9 +11,23 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :variants
-  resources :sprite_sets
-  resources :abilities
+  resources :variants do
+    member do
+      get :delete
+    end
+  end
+  resources :sprite_sets do
+    member do
+      get :delete
+    end
+  end
+
+  resources :abilities do
+    member do
+      get :delete
+    end
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

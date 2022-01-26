@@ -11,6 +11,11 @@
 
   <body>
     <h1>Pokémon</h1>
+    <% if !flash[:notice].blank? %>
+      <div class= "notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

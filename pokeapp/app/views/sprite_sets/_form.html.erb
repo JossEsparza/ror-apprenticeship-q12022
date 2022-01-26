@@ -17,8 +17,8 @@
   </div>
 
   <div>
-    <%= form.label :sprites_on_type, style: "display: block" %>
-    <%= form.text_field :sprites_on_type %>
+    <%= form.label :sprites_type, style: "display: block" %>
+    <%= form.select(:sprites_on_type, {Pokemon: 'Pokemon', Variant: 'Variant'})%>
   </div>
 
   <div>

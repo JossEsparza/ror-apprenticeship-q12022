@@ -1,4 +1,6 @@
 class SpriteSetsController < ApplicationController
+  layout 'application'
+  
   before_action :set_sprite_set, only: %i[ show edit update destroy ]
 
   # GET /sprite_sets or /sprite_sets.json
@@ -8,7 +10,7 @@ class SpriteSetsController < ApplicationController
    elsif params[:variant]
     @sprite_sets = SpriteSet.by_variant(params[:variant])
    else
-    @sprite_sets = SpriteSet.all
+    @sprite_sets = SpriteSet.paginate(page: params[:page], per_page: 10)
    end
   end
 

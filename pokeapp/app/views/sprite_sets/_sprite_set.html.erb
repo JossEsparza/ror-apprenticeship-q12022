@@ -1,52 +1,37 @@
-<div id="<%= dom_id sprite_set %>">
-  <p>
-    <strong>Sprites on:</strong>
-    <%= sprite_set.sprites_on_id %>
-  </p>
+<h2>Sprite sets</h2>
+<% if @sprite_sets.empty? %>
+        <p> There are not sprite sets.</p>
+<% else %>
+  <div id="sprite_sets" class="table">
+    <table>
+      <tr>
+        <th><%= params[:pokemon] || params[:variant] ? @sprite_sets.first.sprites_on_type : "Variant/Pokemon"%></th>
+        <th>Back Default</th>
+        <th>Back Female</th>
+        <th>Back Shiny</th>
+        <th>Back Shiny Female</th>
+        <th>Front Default</th>
+        <th>Front Female</th>
+        <th>Front Shiny</th>
+        <th>Front Shiny Female</th>
+      </tr>
+      <% @sprite_sets.each do |sprite_set| %>
+        <tr>
+          <td><%= sprite_set.sprites_on.name%></td>
+          <td><%= image_tag(sprite_set.back_default, size: '200x200') if sprite_set.back_default %></td>
+          <td><%= image_tag(sprite_set.back_female, size: '200x200') if sprite_set.back_female%></td>
+          <td><%= image_tag(sprite_set.back_shiny, size: '200x200') if sprite_set.back_shiny %></td>
+          <td><%= image_tag(sprite_set.back_shiny_female, size: '200x200') if sprite_set.back_shiny_female %></td>
+          <td><%= image_tag(sprite_set.front_default, size: '200x200') if sprite_set.front_default %></td>
+          <td><%= image_tag(sprite_set.front_female, size: '200x200') if sprite_set.front_female %></td>
+          <td><%= image_tag(sprite_set.front_shiny, size: '200x200') if sprite_set.front_shiny %></td>
+          <td><%= image_tag(sprite_set.front_shiny_female, size: '200x200') if sprite_set.front_shiny_female %></td>
+          <td><%= link_to "Edit this sprite set", edit_sprite_set_path(sprite_set) %> | 
+            <%= button_to "Destroy this sprite set", sprite_set, method: :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
 
-  <p>
-    <strong>Sprites on type:</strong>
-    <%= sprite_set.sprites_on_type %>
-  </p>
-
-  <p>
-    <strong>Back default:</strong>
-    <%= sprite_set.back_default %>
-  </p>
-
-  <p>
-    <strong>Back female:</strong>
-    <%= sprite_set.back_female %>
-  </p>
-
-  <p>
-    <strong>Back shiny:</strong>
-    <%= sprite_set.back_shiny %>
-  </p>
-
-  <p>
-    <strong>Back shiny female:</strong>
-    <%= sprite_set.back_shiny_female %>
-  </p>
-
-  <p>
-    <strong>Front default:</strong>
-    <%= sprite_set.front_default %>
-  </p>
-
-  <p>
-    <strong>Front female:</strong>
-    <%= sprite_set.front_female %>
-  </p>
-
-  <p>
-    <strong>Front shiny:</strong>
-    <%= sprite_set.front_shiny %>
-  </p>
-
-  <p>
-    <strong>Front shiny female:</strong>
-    <%= sprite_set.front_shiny_female %>
-  </p>
-
-</div>
+<%= link_to "New sprite set", new_sprite_set_path %>| <%= link_to "Go back", :back %>

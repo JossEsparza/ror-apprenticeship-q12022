@@ -2,7 +2,7 @@ class PokemonsController < ApplicationController
   layout 'application'
 
   def index
-    @pokemons = Pokemon.sorted.paginate(page: params[:page], per_page: 6)
+    @pokemons = Pokemon.sorted.paginate(page: params[:page], per_page: 9)
   end
   
   def show
@@ -34,9 +34,8 @@ class PokemonsController < ApplicationController
   def update
     # Find a new object using form parameters
     @pokemon = Pokemon.find(params[:id])
-    @pokemon = Pokemon.new(pokemon_params)
     # Update the object
-    if @pokemon.update_attributes(pokemon_params)
+    if @pokemon.update(pokemon_params)
       # If save succeeds, redirect to the show action
       flash[:notice] = "Pokemon updated successfully"
       redirect_to(pokemons_path(@pokemon))

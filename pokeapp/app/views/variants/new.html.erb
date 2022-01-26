@@ -1,9 +1,9 @@
-<h1>New variant</h1>
+<h2>New variant</h2>
 
-<%= render "form", variant: @variant %>
+<%= render "form", variant: @variant, pokemon: params[:pokemon] %>
 
 <br>
 
 <div>
-  <%= link_to "Back to variants", variants_path %>
+  <%= link_to "Go back", :back %>
 </div>

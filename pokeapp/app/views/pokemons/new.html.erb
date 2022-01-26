@@ -1,2 +1,9 @@
-<h1>Pokemons#new</h1>
-<p>Find me in app/views/pokemons/new.html.erb</p>
+<h2>New Pokemon</h2>
+
+<%= render "form", pokemon: @pokemon %>
+
+<br>
+
+<div>
+  <%= link_to "Back to Pokemons", pokemons_path %>
+</div>
