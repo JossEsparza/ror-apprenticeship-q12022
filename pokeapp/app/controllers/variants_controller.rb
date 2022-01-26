@@ -4,7 +4,7 @@ class VariantsController < ApplicationController
   # GET /variants or /variants.json
   def index
     if params[:pokemon] 
-      @variants = Variant.by_pokemon(params[:pokemon])
+      @variants = Variant.by_pokemon(params[:pokemon]).paginate(page: params[:page], per_page: 20)
     else
       @variants = Variant.paginate(page: params[:page], per_page: 20)
     end

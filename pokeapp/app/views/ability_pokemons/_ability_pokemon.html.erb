@@ -13,7 +13,7 @@
           <td><%= ability_pokemon.pokemon.name%></td>
           <td><%= ability_pokemon.ability.name%></td>
           <td><%= link_to "Edit this ability", edit_ability_pokemon_path(ability_pokemon) %> | 
-              <%= link_to "Delete", delete_ability_pokemon_path(@ability_pokemon)%></td>
+              <%= link_to "Delete", delete_ability_pokemon_path(ability_pokemon)%></td>
         </tr>
       <% end %>
     </table>

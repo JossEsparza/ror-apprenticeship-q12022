@@ -6,9 +6,9 @@ class SpriteSetsController < ApplicationController
   # GET /sprite_sets or /sprite_sets.json
   def index
    if params[:pokemon]
-    @sprite_sets = SpriteSet.by_pokemon(params[:pokemon])
+    @sprite_sets = SpriteSet.by_pokemon(params[:pokemon]).paginate(page: params[:page], per_page: 10)
    elsif params[:variant]
-    @sprite_sets = SpriteSet.by_variant(params[:variant])
+    @sprite_sets = SpriteSet.by_variant(params[:variant]).paginate(page: params[:page], per_page: 10)
    else
     @sprite_sets = SpriteSet.paginate(page: params[:page], per_page: 10)
    end
