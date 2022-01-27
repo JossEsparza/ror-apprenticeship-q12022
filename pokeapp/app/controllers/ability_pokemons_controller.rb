@@ -23,13 +23,14 @@ class AbilityPokemonsController < ApplicationController
     # Instantiate a new object using form parameters
     @ability_pokemon = AbilityPokemon.new(ability_pokemon_params)
     # Save the object
-    if @ability_pokemon.save
-      # If save succeeds, redirect to the index action
-      flash[:notice] = "Ability associated successfully"
-      redirect_to(ability_pokemons_path(pokemon: @ability_pokemon.pokemon))
-    else
-      # If save fails, redisplay the form so user can fix problems
-      render('new')
+    respond_to do |format|
+      if @ability_pokemon.save
+        format.html { redirect_to ability_pokemon_url(@ability_pokemon), notice: "Ability was successfully associated." }
+        format.json { render :show, status: :created, location: @ability_pokemon}
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @ability_pokemon.errors, status: :unprocessable_entity }
+      end
     end
   end
 

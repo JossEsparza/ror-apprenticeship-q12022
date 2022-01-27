@@ -19,13 +19,14 @@ class PokemonsController < ApplicationController
     # Instantiate a new object using form parameters
     @pokemon = Pokemon.new(pokemon_params)
     # Save the object
-    if @pokemon.save
-      # If save succeeds, redirect to the index action
-      flash[:notice] = "Pokemon created successfully"
-      redirect_to(pokemons_path)
-    else
-      # If save fails, redisplay the form so user can fix problems
-      render('new')
+    respond_to do |format|
+      if @pokemon.save
+        format.html { redirect_to pokemon_url(@pokemon), notice: "Pokemon set was successfully created." }
+        format.json { render :show, status: :created, location: @pokemon}
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @pokemon.errors, status: :unprocessable_entity }
+      end
     end
   end
 
