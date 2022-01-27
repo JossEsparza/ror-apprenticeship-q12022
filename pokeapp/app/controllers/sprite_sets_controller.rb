@@ -21,7 +21,7 @@ class SpriteSetsController < ApplicationController
 
   # GET /sprite_sets/new
   def new
-    @sprite_set = SpriteSet.new
+    @sprite_set = SpriteSet.new({sprites_on_id: params[:pokemon], sprites_on_type: 'Pokemon'})
   end
 
   # GET /sprite_sets/1/edit

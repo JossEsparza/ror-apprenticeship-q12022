@@ -5,7 +5,6 @@
   <div id="sprite_sets" class="table">
     <table>
       <tr>
-        <!-- <th><%= params[:pokemon] || params[:variant] ? @sprite_sets.first.sprites_on_type : "Variant/Pokemon"%></th> -->
         <th><%=sprite_set_title params[:pokemon], params[:variant], @sprite_sets %></th>
         <th>Back Default</th>
         <th>Back Female</th>
@@ -35,4 +34,4 @@
   </div>
 <% end %>
 
-<%= link_to "New sprite set", new_sprite_set_path %>| <%= link_to "Go back", :back %>
+<%= link_to "New sprite set", new_sprite_set_path(pokemon: params[:pokemon]) %>| <%= link_to "Go back", :back %>

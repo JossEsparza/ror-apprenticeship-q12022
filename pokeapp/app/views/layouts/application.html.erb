@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <h1>Pokémon</h1>
+    <h1><%= link_to 'Pokémon', root_path%></h1>
     <div class="button_container">
       <% if user_signed_in? %>
         <%= link_to "Edit profile", edit_user_registration_path, class: "button_edit_profile" %>

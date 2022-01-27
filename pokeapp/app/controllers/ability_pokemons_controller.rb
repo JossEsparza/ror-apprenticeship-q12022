@@ -16,7 +16,7 @@ class AbilityPokemonsController < ApplicationController
   end
 
   def new
-    @ability_pokemon = AbilityPokemon.new
+    @ability_pokemon = AbilityPokemon.new({pokemon_id: params[:pokemon]})
   end
 
   def create
@@ -26,7 +26,7 @@ class AbilityPokemonsController < ApplicationController
     if @ability_pokemon.save
       # If save succeeds, redirect to the index action
       flash[:notice] = "Ability associated successfully"
-      redirect_to(ability_pokemons_path)
+      redirect_to(ability_pokemons_path(pokemon: @ability_pokemon.pokemon))
     else
       # If save fails, redisplay the form so user can fix problems
       render('new')
@@ -44,7 +44,7 @@ class AbilityPokemonsController < ApplicationController
     if @ability_pokemon.update(ability_pokemon_params)
       # If save succeeds, redirect to the show action
       flash[:notice] = "Ability updated successfully"
-      redirect_to(pokemons_path(@ability_pokemon))
+      redirect_to(ability_pokemons_path(pokemon: @ability_pokemon.pokemon))
     else
       # If save fails, redisplay the form so user can fix problems
       render('edit')
@@ -59,7 +59,7 @@ class AbilityPokemonsController < ApplicationController
     @ability_pokemon = AbilityPokemon.find(params[:id])
     @ability_pokemon.destroy
     flash[:notice] = "Pokemon-Ability destroyed successfully"
-    redirect_to(ability_pokemons_path)
+    redirect_to(ability_pokemons_path(pokemon: @ability_pokemon.pokemon))
   end
   private
 
