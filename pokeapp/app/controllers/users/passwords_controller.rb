@@ -7,9 +7,10 @@ class Users::PasswordsController < Devise::PasswordsController
   # end
 
   # POST /resource/password
-  # def create
-  #   super
-  # end
+  def create
+    super
+    ResetPasswordMailer.with(user: @user).reset_password_confirmation.deliver_later
+  end
 
   # GET /resource/password/edit?reset_password_token=abcdef
   # def edit
