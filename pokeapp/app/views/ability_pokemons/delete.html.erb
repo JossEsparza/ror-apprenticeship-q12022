@@ -1,0 +1,12 @@
+<div class="title">
+  <%= form_for(@ability_pokemon, :url => ability_pokemon_path(@ability_pokemon), :method => 'delete') do |f| %>
+    <div class="delete-question">
+      <p>Are you sure you want to permanetly delete this pokemon-ability?</p>
+    </div>  
+    <p><%=f.object.ability_id%></p>
+    <p><%=f.object.pokemon_id%></p>
+    <div class="form-buttons">
+      <%= f.submit("Delete Pokemon-Ability") %>
+    </div>
+  <% end %>
+</div>

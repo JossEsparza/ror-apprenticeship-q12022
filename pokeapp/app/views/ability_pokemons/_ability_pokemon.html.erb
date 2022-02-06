@@ -1,0 +1,23 @@
+<h2>Ability Pokemons</h2>
+<% if @ability_pokemons.empty? %>
+    <p> There are not abilities assigned to the pokemon.</p>
+<% else %>
+  <div id="ability_pokemons" class="table_ability">
+    <table>
+      <tr>
+        <th>Pokemon</th>
+        <th>Ability</th>
+      </tr>
+      <% @ability_pokemons.each do |ability_pokemon| %>
+        <tr>
+          <td><%= ability_pokemon.pokemon.name%></td>
+          <td><%= ability_pokemon.ability.name%></td>
+          <td><%= link_to "Edit this ability", edit_ability_pokemon_path(ability_pokemon) %> | 
+              <%= link_to "Delete", delete_ability_pokemon_path(ability_pokemon)%></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+
+<%= link_to "New ability", new_ability_pokemon_path(pokemon: @ability_pokemons.first.pokemon) %> | <%= link_to "Go back", :back %>

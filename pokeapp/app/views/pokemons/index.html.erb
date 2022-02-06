@@ -1,0 +1,14 @@
+<% @page_title = "Pokemons" %>
+<h2>Pokemons</h2>
+<%= link_to "Create pokemon", new_pokemon_path %> |
+<%= link_to "Show variants", variants_path %> |
+<%= link_to "Show sprite_sets", sprite_sets_path %>|
+<%= link_to "Show abilities", abilities_path %>
+
+<div id='pokemons-index'>
+  <% @pokemons.each do |pokemon| %>
+    <%= render(:partial => 'card', :locals => {pokemon: pokemon, page_mode: :index}) %>
+  <% end%>
+</div>
+
+<%= will_paginate @pokemons %>

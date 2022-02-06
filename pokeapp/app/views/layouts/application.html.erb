@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pokeapp: <%= @page_title || "Admin Area" %></title>
+    <%= stylesheet_link_tag('card', :media => 'all')%>
+    <%= favicon_link_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <h1><%= link_to 'Pokémon', root_path%></h1>
+    <div class="button_container">
+      <% if user_signed_in? %>
+        <%= link_to "Edit profile", edit_user_registration_path, class: "button_edit_profile" %>
+        <%= link_to "Log out", log_out_path, method: :delete, class: "button_sign_log_out" %>
+      <% else %>
+        <%= link_to "Sign up", sign_up_path, class: "button_sign_up"%>
+        <%= link_to "Log in", sign_in_path, class: "button_sign_log_in" %>
+      <% end %>
+    </div>
+    <!-- <% if !flash[:notice].blank? %>
+      <div class= "notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %> -->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>

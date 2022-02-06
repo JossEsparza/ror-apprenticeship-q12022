@@ -1,0 +1,12 @@
+<div class="title">
+  <%= form_for(@variant, :url => variant_path(@variant), :method => 'delete') do |f| %>
+    <div class="delete-question">
+      <p>Are you sure you want to permanetly delete this variant?</p>
+    </div>  
+    <p><%=f.object.name%></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete Variant") %>
+    </div>
+  <% end %>
+</div>

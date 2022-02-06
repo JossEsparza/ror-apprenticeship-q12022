@@ -1,0 +1,27 @@
+<%= form_with(model: ability_pokemon) do |form| %>
+  <% if ability_pokemon.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(ability_pokemon.errors.count, "error") %> prohibited this ability from being saved:</h2>
+
+      <ul>
+        <% ability_pokemon.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :pokemon, style: "display: block" %>
+    <%= form.select :pokemon_id, Pokemon.sorted.map {|s| [ s.name, s.id ] } %>
+  </div>
+  <div>
+    <%= form.label :ability, style: "display: block" %>
+    <%= form.select :ability_id, Ability.sorted.map {|s| [ s.name, s.id ] } %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+

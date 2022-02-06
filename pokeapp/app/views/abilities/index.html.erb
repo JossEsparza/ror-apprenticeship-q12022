@@ -1,0 +1,17 @@
+<% @page_title = "Abilities" %>
+<%= will_paginate @abilities %>
+<div id="abilities" class="table_ability">
+  <table>
+    <tr>
+      <th>Ability</th>
+    </tr>
+    <% @abilities.each do |ability| %>
+      <tr>
+        <td><%= ability.name%></td>
+        <td><%= link_to "Edit this ability", edit_ability_path(ability) %> | 
+            <%= link_to "Delete", delete_ability_path(ability)%></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<%= link_to "New ability", new_ability_path %>| <%= link_to "Go back", :back %>
